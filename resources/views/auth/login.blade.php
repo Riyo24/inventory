@@ -31,7 +31,7 @@
                         <div class="content">
                             <div class="header">
                                 <div class="logo text-center"><img height="60" src="{{ asset('assets/img/logo_bengkel.png')}}"/></div>
-                                <p class="lead">LOGIN</p>
+                                <p class="lead" style="font-weight: bold;">LOGIN</p>
                             </div>
                             <form class="form-auth-small" method="POST" action="{{ route('login') }}">
                                 @csrf

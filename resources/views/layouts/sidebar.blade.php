@@ -37,10 +37,10 @@
             <li class="active"><a href="{{ route('products.index') }}"><i class="fa fa-cubes"></i> <span>Barang</span></a></li>
             <li class="active"><a href="{{ route('suppliers.index') }}"><i class="fa fa-truck"></i> <span>Supplier</span></a></li>
             <li class="active"><a href="{{ route('productsIn.index') }}"><i class="fa fa-plus"></i> <span>Barang Masuk</span></a></li>
-            <li class="active"><a href="{{ route('jasa.index') }}"><i class="fa fa-asl-interpreting"></i> <span>Jasa</span></a></li>
+            <li class="active"><a href="{{ route('jasa.index') }}"><i class="fa fa-cogs"></i> <span>Jasa</span></a></li>
             <li class="active"><a href="{{ route('customers.index') }}"><i class="fa fa-users"></i> <span>Pelanggan</span></a></li>
             <li class="active"><a href="{{ route('productsOut.index') }}"><i class="fa fa-cubes"></i> <span>Penjualan Barang</span></a></li>
-            <li class="active"><a href="{{ route('penjualanJasa.index') }}"><i class="fa fa-asl-interpreting"></i> <span>Penjualan Jasa</span></a></li>
+            <li class="active"><a href="{{ route('penjualanJasa.index') }}"><i class="fa fa-handshake-o"></i> <span>Penjualan Jasa</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

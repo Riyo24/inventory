@@ -93,7 +93,7 @@
                 <p>Jasa</p>
             </div>
             <div class="icon">
-                <i class="fa fa-asl-interpreting"></i>
+                <i class="fa fa-cogs"></i>
             </div>
             <a href="{{ route('jasa.index') }}" class="small-box-footer">Lihat Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -138,7 +138,7 @@
                 <p>Penjualan Jasa</p>
             </div>
             <div class="icon">
-                <i class="fa fa-asl-interpreting"></i>
+                <i class="fa fa-handshake-o"></i>
             </div>
             <a href="{{ route('penjualanJasa.index') }}" class="small-box-footer">Lihat Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
         </div>
