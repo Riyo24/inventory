@@ -58,9 +58,13 @@
     </table>
 
     <table border="0" id="table-data" width="100%">
+        <?php 
+        /* 
         <tr style="background: #000; color: #fff;">
           <td align="center" colspan="4"><strong>Invoice ID {{ $product_keluar->id }}</strong></td>
         </tr>
+        */
+        ?>
 
         <tr align="center">
             <td width="58%" align="left"><strong>Barang</strong></td>
