@@ -6,7 +6,7 @@
 @section('content')
 <!-- Small boxes (Stat box) -->
 <div class="row">
-    <div class="col-lg-3 col-xs-6">
+    {{-- <div class="col-lg-3 col-xs-6">
         <!-- small box -->
         <div class="small-box bg-primary">
             <div class="inner">
@@ -19,7 +19,7 @@
             </div>
             <a href="/user" class="small-box-footer">Lihat Selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
         </div>
-    </div>
+    </div> --}}
     <!-- ./col -->
     <div class="col-lg-3 col-xs-6">
         <!-- small box -->

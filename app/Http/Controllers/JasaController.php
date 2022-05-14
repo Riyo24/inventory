@@ -43,8 +43,8 @@ class JasaController extends Controller
     {
         $this->validate($request, [
 			'nama' => 'required',
-			'keterangan' => 'required',
-			'harga' => 'required',
+			// 'keterangan' => 'required',
+			// 'harga' => 'required',
 		]);
 
 		Jasa::create($request->all());
@@ -89,8 +89,8 @@ class JasaController extends Controller
     {
         $this->validate($request, [
 			'nama' => 'required|string|min:2',
-			'keterangan' => 'required|string|min:2',
-			'harga' => 'required',
+			// 'keterangan' => 'required|string|min:2',
+			// 'harga' => 'required',
 		]);
 
 		$jasa = Jasa::findOrFail($id);

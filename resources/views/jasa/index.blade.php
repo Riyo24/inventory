@@ -27,8 +27,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
-                    <th>Keterangan</th>
-                    <th>Harga</th>
+                    {{-- <th>Keterangan</th>
+                    <th>Harga</th> --}}
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -75,8 +75,8 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'nama', name: 'nama'},
-                {data: 'keterangan', name: 'keterangan'},
-                {data: 'harga', name: 'harga'},
+                // {data: 'keterangan', name: 'keterangan'},
+                // {data: 'harga', name: 'harga'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

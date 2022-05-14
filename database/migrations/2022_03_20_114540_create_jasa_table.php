@@ -16,8 +16,8 @@ class CreateJasaTable extends Migration
         Schema::create('jasa', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->string('keterangan');
-            $table->integer('harga');
+            $table->string('keterangan')->nullable();
+            $table->integer('harga')->nullable();
             $table->timestamps();
         });
     }

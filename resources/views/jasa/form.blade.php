@@ -22,7 +22,7 @@
                             <span class="help-block with-errors"></span>
                         </div>
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label >Keterangan</label>
                             <input type="text" class="form-control" id="keterangan" name="keterangan"   required>
                             <span class="help-block with-errors"></span>
@@ -32,7 +32,7 @@
                             <label >Harga</label>
                             <input type="text" class="form-control" id="harga" name="harga"   required>
                             <span class="help-block with-errors"></span>
-                        </div>
+                        </div> --}}
 
 
                     </div>
