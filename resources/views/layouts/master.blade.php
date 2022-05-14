@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Sistem Inventory</title>
+    <title>Bengkel Murah Jaya</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -118,7 +118,7 @@
         </div>
         <!-- Default to the left -->
         <?php $date = date('Y')?>
-        <strong>Copyright &copy; {{$date}} <a href="https://www.instagram.com/riyo_hdrzn/" target="_blank">Riyo</a>.</strong>
+        <strong>Copyright &copy; {{$date}} <a href="https://www.instagram.com/riyo_hdrzn/" target="_blank">Bengkel Murah Jaya</a>.</strong>
     </footer>
 
     <!-- Control Sidebar -->

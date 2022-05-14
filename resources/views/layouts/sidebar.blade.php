@@ -40,7 +40,7 @@
             <li class="active"><a href="{{ route('jasa.index') }}"><i class="fa fa-cogs"></i> <span>Jasa</span></a></li>
             <li class="active"><a href="{{ route('customers.index') }}"><i class="fa fa-users"></i> <span>Pelanggan</span></a></li>
             <li class="active"><a href="{{ route('productsOut.index') }}"><i class="fa fa-cubes"></i> <span>Penjualan Barang</span></a></li>
-            <li class="active"><a href="{{ route('penjualanJasa.index') }}"><i class="fa fa-handshake-o"></i> <span>Penjualan Jasa</span></a></li>
+            <li class="active"><a href="{{ route('penjualanJasa.index') }}"><i class="fa fa-handshake-o"></i> <span>Pelayanan Jasa</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>

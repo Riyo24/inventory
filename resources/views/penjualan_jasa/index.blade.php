@@ -15,12 +15,12 @@
     <div class="box">
 
         <div class="box-header">
-            <h3 class="box-title">Data Penjualan Jasa</h3>
+            <h3 class="box-title">Data Pelayanan Jasa</h3>
         </div>
 
         <div class="box-header">
-            <a onclick="addForm()" class="btn btn-primary" >Tambah Penjualan Jasa</a>
-            <a href="{{ route('exportPDF.penjualanJasaAll') }}" class="btn btn-success">Cetak Laporan Penjualan Jasa</a>
+            <a onclick="addForm()" class="btn btn-primary" >Tambah Pelayanan Jasa</a>
+            <a href="{{ route('exportPDF.penjualanJasaAll') }}" class="btn btn-success">Cetak Laporan Jasa</a>
         </div>
 
         <!-- /.box-header -->
