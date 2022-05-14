@@ -44,6 +44,7 @@
     <tr>
         <td>ID</td>
         <td>Jasa</td>
+        <td>Harga</td>
         <td>Keterangan</td>
         <td>Customer</td>
         <td>Date</td>
@@ -54,7 +55,8 @@
         <tr>
             <td>{{ $p->id }}</td>
             <td>{{ $p->jasa->nama }}</td>
-            <td>{{ $p->jasa->keterangan }}</td>
+            <td>Rp. {{ $p->harga }}</td>
+            <td>{{ $p->keterangan }}</td>
             <td>{{ $p->customer->nama }}</td>
             <td>{{ $p->tanggal }}</td>
         </tr>

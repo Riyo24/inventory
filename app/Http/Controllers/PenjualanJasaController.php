@@ -57,7 +57,9 @@ class PenjualanJasaController extends Controller
         $this->validate($request, [
             'jasa_id'        => 'required',
             'customer_id'    => 'required',
-            'tanggal'        => 'required'
+            'tanggal'        => 'required',
+            'harga'        => 'required',
+            'keterangan'        => 'required'
          ]);
  
          Penjualan_Jasa::create($request->all());
@@ -103,7 +105,9 @@ class PenjualanJasaController extends Controller
         $this->validate($request, [
             'jasa_id'     => 'required',
             'customer_id'    => 'required',
-            'tanggal'           => 'required'
+            'tanggal'           => 'required',
+            'harga'           => 'required',
+            'keterangan'           => 'required'
         ]);
 
         $penjualan_jasa = Penjualan_Jasa::findOrFail($id);

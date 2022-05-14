@@ -74,9 +74,9 @@
         </tr>
         <tr align="center">
             <td width="46%" align="left">{{ $penjualan_jasa->jasa->nama }}</td>
-            <td width="18%">{{ $penjualan_jasa->jasa->keterangan }}</td>
-            <td width="18%">Rp. {{ $penjualan_jasa->jasa->harga }}</td>
-            <td width="18%">Rp. {{ $penjualan_jasa->jasa->harga }}</td>
+            <td width="18%">{{ $penjualan_jasa->keterangan }}</td>
+            <td width="18%">Rp. {{ $penjualan_jasa->harga }}</td>
+            <td width="18%">Rp. {{ $penjualan_jasa->harga }}</td>
         </tr>
     </table>
 

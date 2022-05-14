@@ -23,6 +23,18 @@
                         </div>
 
                         <div class="form-group">
+                            <label >Keterangan</label>
+                            <textarea type="text" class="form-control" id="keterangan" name="keterangan"   required></textarea>
+                            <span class="help-block with-errors"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label >Harga</label>
+                            <input type="text" class="form-control" id="harga" name="harga"   required>
+                            <span class="help-block with-errors"></span>
+                        </div>
+
+                        <div class="form-group">
                             <label >Pelanggan</label>
                             {!! Form::select('customer_id', $customers, null, ['class' => 'form-control select', 'placeholder' => '-- Choose Customer --', 'id' => 'customer_id', 'required']) !!}
                             <span class="help-block with-errors"></span>

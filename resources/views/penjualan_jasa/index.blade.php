@@ -61,6 +61,7 @@
                     <th>Pelanggan</th>
                     <th>Alamat</th>
                     <th>Total Bayar</th>
+                    <th>Keterangan</th>
                     <th>Tanggal Pembelian</th>
                     <th>Aksi</th>
                 </tr>
@@ -73,7 +74,8 @@
                         <td>{{ $i->jasa->keterangan }}</td>
                         <td>{{ $i->customer->nama }}</td>
                         <td>{{ $i->customer->alamat }}</td>
-                        <td>{{ $i->jasa->harga }}</td>
+                        <td>Rp. {{ $i->harga }}</td>
+                        <td>{{ $i->keterangan }}</td>
                         <td>{{ $i->tanggal }}</td>
                         <td>
                             <a href="{{ route('exportPDF.penjualanJasa', [ 'id' => $i->id ]) }}" class="btn btn-sm btn-success">Cetak</a>
@@ -194,6 +196,8 @@
                     $('#id').val(data.id);
                     $('#jasa_id').val(data.jasa_id);
                     $('#customer_id').val(data.customer_id);
+                    $('#harga').val(data.harga);
+                    $('#keterangan').val(data.keterangan);
                     $('#tanggal').val(data.tanggal);
                 },
                 error : function() {
