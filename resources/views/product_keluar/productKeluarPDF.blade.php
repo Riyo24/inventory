@@ -38,13 +38,21 @@
         </tr>
     </table>
 
-    <table border="0" width="30%" style="margin-top: 10px;">
+    <table border="0" width="100%" style="margin-top: 10px;">
         <tr>
             <td>
             Pelanggan
           </td>
           <td>
             : {{ $product_keluar->customer->nama }}
+          </td>
+        </tr>
+        <tr>
+            <td>
+            Alamat
+          </td>
+          <td>
+            : {{ $product_keluar->customer->alamat }}
           </td>
         </tr>
         <tr>

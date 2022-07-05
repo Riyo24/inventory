@@ -25,7 +25,7 @@ class ProductKeluarController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('nama','ASC')
+        $products = Product::orderBy('nama','ASC')->where('qty', '>=', '1')
             ->get()
             ->pluck('nama','id');
 
