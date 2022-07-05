@@ -38,7 +38,9 @@
         color: white;
     }
 </style>
-
+<center>
+    <h1>Bengkel Murah Jaya</h1>
+</center>
 <table id="product-masuk" width="100%">
     <thead>
     <tr>

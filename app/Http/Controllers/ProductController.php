@@ -174,11 +174,13 @@ class ProductController extends Controller
             ->addColumn('category_name', function ($product){
                 return $product->category->name;
             })
-            ->addColumn('show_photo', function($product){
+            ->addColumn('harga_format', function ($product){
+                return "Rp. " . number_format($product->harga, 0, ',', '.');
+            })            ->addColumn('show_photo', function($product){
                 if ($product->image == NULL){
                     return 'No Image';
                 }
-                return '<img class="rounded-square" width="50" height="50" src="'. url($product->image) .'" alt="">';
+                return '<img class="rounded-square" width="100" height="100" src="'. url($product->image) .'" alt="">';
             })
             ->addColumn('action', function($product){
                 return '<a onclick="editForm('. $product->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Ubah</a> ' .

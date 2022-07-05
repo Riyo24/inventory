@@ -153,6 +153,9 @@ class ProductKeluarController extends Controller
             ->addColumn('products_name', function ($product){
                 return $product->product->nama;
             })
+            ->addColumn('harga_format', function ($product){
+                return "Rp. " . $product->product->harga;
+            })
             ->addColumn('customer_name', function ($product){
                 return $product->customer->nama;
             })

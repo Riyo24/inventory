@@ -79,8 +79,8 @@
                         <td>{{ $i->product->nama }}</td>
                         <td>{{ $i->customer->nama }}</td>
                         <td>{{ $i->qty }}</td>
-                        <td>{{ $i->product->harga }}</td>
-                        <td>{{ $i->qty * $i->product->harga }}</td>
+                        <td>Rp. {{ number_format($i->product->harga, 0, ',', '.')}}</td>
+                        <td>Rp. {{ number_format($i->qty * $i->product->harga, 0, ',', '.') }}</td>
                         <td>{{ $i->tanggal }}</td>
                         <td>
                             <a href="{{ route('exportPDF.productKeluar', [ 'id' => $i->id ]) }}" class="btn btn-sm btn-success">Cetak</a>

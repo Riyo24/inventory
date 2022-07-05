@@ -76,7 +76,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'nama', name: 'nama'},
-                {data: 'harga', name: 'harga'},
+                {data: 'harga_format', name: 'harga_format'},
                 {data: 'qty', name: 'qty'},
                 {data: 'show_photo', name: 'show_photo'},
                 {data: 'category_name', name: 'category_name'},

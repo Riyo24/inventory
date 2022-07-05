@@ -29,6 +29,9 @@
                         <td class="title">
                             <h1>Bengkel Murah Jaya</h1>
                         </td>
+                        <left>
+    <h4>Jl. Gunung Karang No.10, Pemecutan Kelod,Denpasar Barat, Bali</h4>
+</left>
                     </tr>
                 </table>
             </td>
@@ -80,12 +83,13 @@
         </tr>
     </table>
 
-    <table border="0" width="100%" style="margin-top: 20px; clear: both;">
+    <table border="0" width="100%" style="margin-top: 60px; clear: both;">
         <tr align="right">
             <td>Hormat Kami</td>
         </tr>
+        <table border="0" width="100%" style="margin-top: 50px; clear: both;">
         <tr align="right">
-            <td>Bengkel Murah Jaya</td>
+            <td>Bengkel murah jaya</td>
         </tr>
     </table>
 </div>

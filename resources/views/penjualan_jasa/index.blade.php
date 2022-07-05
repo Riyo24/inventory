@@ -57,7 +57,6 @@
                 <tr>
                     <th>ID</th>
                     <th>Jasa</th>
-                    <th>Keterangan</th>
                     <th>Pelanggan</th>
                     <th>Alamat</th>
                     <th>Total Bayar</th>
@@ -71,10 +70,9 @@
                     <tbody>
                         <td>{{ $i->id }}</td>
                         <td>{{ $i->jasa->nama }}</td>
-                        <td>{{ $i->jasa->keterangan }}</td>
                         <td>{{ $i->customer->nama }}</td>
                         <td>{{ $i->customer->alamat }}</td>
-                        <td>Rp. {{ $i->harga }}</td>
+                        <td>Rp. {{ number_format($i->harga, 0, ',', '.') }}</td>
                         <td>{{ $i->keterangan }}</td>
                         <td>{{ $i->tanggal }}</td>
                         <td>

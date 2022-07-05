@@ -38,6 +38,16 @@
         color: white;
     }
 </style>
+<center>
+    <h1>Bengkel Murah Jaya</h1>
+</center>
+<center>
+    <h4>Jl. Gunung Karang No.10, Pemecutan Kelod,Denpasar Barat, Bali</h4>
+</center>
+<Left>
+    <h3>Laporan Jasa</h3>
+</left>
+
 
 <table id="product-masuk" width="100%">
     <thead>
