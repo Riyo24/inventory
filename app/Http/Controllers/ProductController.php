@@ -24,8 +24,8 @@ class ProductController extends Controller
             ->get()
             ->pluck('name','id');
 
-        $producs = Product::all();
-        return view('products.index', compact('category'));
+        $products = Product::where('qty', '=', 0)->get();
+        return view('products.index', compact('category', 'products'));
     }
 
     /**

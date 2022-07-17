@@ -15,6 +15,15 @@
 {{--</head>--}}
 {{--<body>--}}
     <style>
+        h1{
+            margin: 0;
+        }
+        h3{
+            margin: 0;
+        }
+        h4{
+            margin: 0;
+        }
         #product-masuk {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
@@ -44,6 +53,7 @@
 <center>
     <h4>Jl. Gunung Karang No.10, Pemecutan Kelod,Denpasar Barat, Bali</h4>
 </center>
+<hr>
 <left>
     <h3>Laporan Stok Barang Masuk</h3>
 </left>

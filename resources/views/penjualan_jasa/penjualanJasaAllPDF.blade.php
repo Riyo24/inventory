@@ -15,6 +15,15 @@
 {{--</head>--}}
 {{--<body>--}}
 <style>
+    h1{
+        margin: 0;
+    }
+    h3{
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
     #product-masuk {
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
@@ -44,10 +53,10 @@
 <center>
     <h4>Jl. Gunung Karang No.10, Pemecutan Kelod,Denpasar Barat, Bali</h4>
 </center>
+<hr>
 <Left>
     <h3>Laporan Jasa</h3>
 </left>
-
 
 <table id="product-masuk" width="100%">
     <thead>

@@ -85,7 +85,8 @@ class ProductKeluarController extends Controller
 
         return response()->json([
             'success'    => true,
-            'message'    => 'Penjualan Barang Berhasil ditambahkan'
+            'message'    => 'Penjualan Barang Berhasil ditambahkan',
+            'data'       => $product,
         ]);
 
     }

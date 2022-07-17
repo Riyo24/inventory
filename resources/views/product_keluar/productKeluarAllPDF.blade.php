@@ -15,6 +15,15 @@
 {{--</head>--}}
 {{--<body>--}}
 <style>
+    h1{
+        margin: 0;
+    }
+    h3{
+        margin: 0;
+    }
+    h4{
+        margin: 0;
+    }
     #product-masuk {
         font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
         border-collapse: collapse;
@@ -41,11 +50,16 @@
 <center>
     <h1>Bengkel Murah Jaya</h1>
 </center>
+<center>
+    <h4>Jl. Gunung Karang No.10, Pemecutan Kelod,Denpasar Barat, Bali</h4>
+</center>
+<hr>
 <table id="product-masuk" width="100%">
     <thead>
     <tr>
         <td>ID</td>
         <td>Product</td>
+        <td>Keterangan</td>
         <td>Customer</td>
         <td>Quantity</td>
         <td>Date</td>
@@ -56,6 +70,7 @@
         <tr>
             <td>{{ $p->id }}</td>
             <td>{{ $p->product->nama }}</td>
+            <td>{{ $p->product->keterangan }}</td>
             <td>{{ $p->customer->nama }}</td>
             <td>{{ $p->qty }}</td>
             <td>{{ $p->tanggal }}</td>

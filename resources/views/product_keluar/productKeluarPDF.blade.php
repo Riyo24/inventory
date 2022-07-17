@@ -37,7 +37,7 @@
           </td>
         </tr>
     </table>
-
+    <hr>
     <table border="0" width="100%" style="margin-top: 10px;">
         <tr>
             <td>

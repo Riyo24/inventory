@@ -19,9 +19,13 @@
             <a onclick="addForm()" class="btn btn-primary" >Tambah Barang</a>
         </div>
 
-
         <!-- /.box-header -->
         <div class="box-body">
+            @foreach($products as $data)
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{$data->nama}} - ({{$data->keterangan}})</strong> Stok Habis
+                </div>
+            @endforeach
             <table id="products-table" class="table table-striped">
                 <thead>
                 <tr>
