@@ -8,6 +8,8 @@
 </head>
 
 <style>
+    h1,h4{
+        margin: 0;
     #table-data {
         border-collapse: collapse;
         padding: 3px;
@@ -40,6 +42,7 @@
           </td>
         </tr>
     </table>
+    <hr>
 
     <table border="0" width="30%" style="margin-top: 10px;">
         <tr>
@@ -78,8 +81,8 @@
         <tr align="center">
             <td width="46%" align="left">{{ $penjualan_jasa->jasa->nama }}</td>
             <td width="18%">{{ $penjualan_jasa->keterangan }}</td>
-            <td width="18%">Rp. {{ $penjualan_jasa->harga }}</td>
-            <td width="18%">Rp. {{ $penjualan_jasa->harga }}</td>
+            <td width="18%">Rp. {{ number_format($penjualan_jasa->harga, 0, ',', '.') }}</td>
+            <td width="18%">Rp. {{ number_format($penjualan_jasa->harga, 0, ',', '.') }}</td>
         </tr>
     </table>
 

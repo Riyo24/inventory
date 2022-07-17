@@ -74,7 +74,7 @@
         <tr>
             <td>{{ $p->id }}</td>
             <td>{{ $p->jasa->nama }}</td>
-            <td>Rp. {{ $p->harga }}</td>
+            <td>Rp. {{ number_format($p->harga, 0, ',', '.') }}</td>
             <td>{{ $p->keterangan }}</td>
             <td>{{ $p->customer->nama }}</td>
             <td>{{ $p->tanggal }}</td>

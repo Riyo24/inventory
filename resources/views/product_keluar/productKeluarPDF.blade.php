@@ -8,6 +8,9 @@
 </head>
 
 <style>
+    h1,h4{
+        margin: 0;
+    }
     #table-data {
         border-collapse: collapse;
         padding: 3px;
@@ -28,6 +31,7 @@
                     <tr>
                         <td class="title">
                             <h1>Bengkel Murah Jaya</h1>
+                            <h4>Jl. Gunung Karang No.10, Pemecutan Kelod,Denpasar Barat, Bali</h4>
                         </td>
                     </tr>
                 </table>
@@ -83,14 +87,15 @@
         <tr align="center">
             <td width="58%" align="left">{{ $product_keluar->product->nama }}</td>
             <td width="6%">{{ $product_keluar->qty }}</td>
-            <td width="18%">Rp. {{ $product_keluar->product->harga }}</td>
-            <td width="18%">Rp. {{ $product_keluar->qty * $product_keluar->product->harga }}</td>
+            <td width="18%">Rp. {{ number_format($product_keluar->product->harga, 0, ',', '.') }}</td>
+            <td width="18%">Rp. {{ number_format(($product_keluar->qty * $product_keluar->product->harga), 0, ',', '.') }}</td>
         </tr>
     </table>
 
     <table border="0" width="100%" style="margin-top: 20px; clear: both;">
-        <tr align="right">
+        <tr align="right" height="50px">
             <td>Hormat Kami</td>
+            <br>
         </tr>
         <tr align="right">
             <td>Bengkel Murah Jaya</td>
