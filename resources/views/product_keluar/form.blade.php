@@ -18,7 +18,13 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label >Barang</label>
-                            {!! Form::select('product_id', $products, null, ['class' => 'form-control select', 'placeholder' => '-- Choose Product --', 'id' => 'product_id', 'required']) !!}
+                            <select id="product_id" name="product_id" class="form-control select" >
+                                <option value=" ">-- Choose Product --</option>
+                                @foreach($products as $data)
+                                    <option value="{{ $data->id }}">{{ $data->nama }} - Stok ({{ $data->qty }}) - ({{$data->keterangan}})</option>
+                                @endforeach
+                            </select>
+                            {{-- {!! Form::select('product_id', $products, null, ['class' => 'form-control select', 'placeholder' => '-- Choose Product --', 'id' => 'product_id', 'required']) !!} --}}
                             <span class="help-block with-errors"></span>
                         </div>
 

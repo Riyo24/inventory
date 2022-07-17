@@ -26,8 +26,7 @@ class ProductKeluarController extends Controller
     public function index()
     {
         $products = Product::orderBy('nama','ASC')->where('qty', '>=', '1')
-            ->get()
-            ->pluck('nama','id');
+            ->get();
 
         $customers = Customer::orderBy('nama','ASC')
             ->get()
@@ -63,9 +62,24 @@ class ProductKeluarController extends Controller
            'tanggal'           => 'required'
         ]);
 
-        Product_Keluar::create($request->all());
-
         $product = Product::findOrFail($request->product_id);
+        $stokInput = (int)$request->qty;
+        if($stokInput < 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+
+        }
+        if($stokInput > $product->qty){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Stok Yang Diinput melebihi batas'
+            ]);
+        }
+
+        Product_Keluar::create($request->all());
+        
         $product->qty -= $request->qty;
         $product->save();
 
