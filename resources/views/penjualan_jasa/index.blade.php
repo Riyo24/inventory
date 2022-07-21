@@ -257,15 +257,24 @@
                         contentType: false,
                         processData: false,
                         success : function(data) {
-                            $('#modal-form').modal('hide');
-                            table.ajax.reload();
-                            window.location.reload();
-                            swal({
-                                title: 'Success!',
-                                text: data.message,
-                                type: 'success',
-                                timer: '1500'
-                            })
+                            if(data.error === true){
+                                swal({
+                                    title: 'Oops...',
+                                    text: data.message,
+                                    type: 'error',
+                                    timer: '1500'
+                                })
+                            } else if(data.success) {
+                                $('#modal-form').modal('hide');
+                                table.ajax.reload();
+                                window.location.reload();
+                                swal({
+                                    title: 'Success!',
+                                    text: data.message,
+                                    type: 'success',
+                                    timer: '1500'
+                                })
+                            }
                         },
                         error : function(data){
                             swal({

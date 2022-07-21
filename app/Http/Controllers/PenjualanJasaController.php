@@ -60,7 +60,14 @@ class PenjualanJasaController extends Controller
             'tanggal'        => 'required',
             'harga'        => 'required',
             'keterangan'        => 'required'
-         ]);
+        ]);
+        $hargaInput = (int)$request->harga;
+        if($hargaInput <= 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+        }
  
          Penjualan_Jasa::create($request->all());
  
@@ -109,6 +116,13 @@ class PenjualanJasaController extends Controller
             'harga'           => 'required',
             'keterangan'           => 'required'
         ]);
+        $hargaInput = (int)$request->harga;
+        if($hargaInput <= 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+        }
 
         $penjualan_jasa = Penjualan_Jasa::findOrFail($id);
         $penjualan_jasa->update($request->all());

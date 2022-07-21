@@ -60,6 +60,15 @@ class ProductController extends Controller
         ]);
 
         $input = $request->all();
+        $hargaInput = (int)$request->harga;
+        $qtyInput = (int)$request->qty;
+        if($qtyInput <= 0 || $hargaInput <= 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+
+        }
         $input['image'] = null;
 
         if ($request->hasFile('image')){
@@ -125,6 +134,15 @@ class ProductController extends Controller
         ]);
 
         $input = $request->all();
+        $hargaInput = (int)$request->harga;
+        $qtyInput = (int)$request->qty;
+        if($qtyInput <= 0 || $hargaInput <= 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+
+        }
         $produk = Product::findOrFail($id);
 
         $input['image'] = $produk->image;

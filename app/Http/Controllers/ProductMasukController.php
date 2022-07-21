@@ -63,6 +63,14 @@ class ProductMasukController extends Controller
         ]);
 
         Product_Masuk::create($request->all());
+        $qtyInput = (int)$request->qty;
+        if($qtyInput <= 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+
+        }
 
         $product = Product::findOrFail($request->product_id);
         $product->qty += $request->qty;
@@ -113,6 +121,14 @@ class ProductMasukController extends Controller
             'qty'            => 'required',
             'tanggal'        => 'required'
         ]);
+        $qtyInput = (int)$request->qty;
+        if($qtyInput <= 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+
+        }
 
         $product_masuk = Product_Masuk::findOrFail($id);
         $product_masuk->update($request->all());

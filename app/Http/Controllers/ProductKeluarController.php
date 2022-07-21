@@ -63,15 +63,15 @@ class ProductKeluarController extends Controller
         ]);
 
         $product = Product::findOrFail($request->product_id);
-        $stokInput = (int)$request->qty;
-        if($stokInput < 0){
+        $qtyInput = (int)$request->qty;
+        if($qtyInput <= 0){
             return response()->json([
                 'error'    => true,
                 'message'    => 'Input anda tidak masuk akal'
             ]);
 
         }
-        if($stokInput > $product->qty){
+        if($qtyInput > $product->qty){
             return response()->json([
                 'error'    => true,
                 'message'    => 'Stok Yang Diinput melebihi batas'

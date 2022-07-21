@@ -24,13 +24,13 @@
 
                         <div class="form-group">
                             <label >Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga"   required>
+                            <input type="number" class="form-control" id="harga" name="harga"   required>
                             <span class="help-block with-errors"></span>
                         </div>
 
                         <div class="form-group">
                             <label >Quantity</label>
-                            <input type="text" class="form-control" id="qty" name="qty"   required>
+                            <input type="number" class="form-control" id="qty" name="qty"   required>
                             <span class="help-block with-errors"></span>
                         </div>
 
