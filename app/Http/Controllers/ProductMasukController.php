@@ -160,8 +160,19 @@ class ProductMasukController extends Controller
 
 
 
-    public function apiProductsIn(){
-        $product = Product_Masuk::all();
+    public function apiProductsIn(Request $request){
+        $filter_bulan = $request->filter_bulan ?? null;
+        $product = Product_Masuk::orderBy('tanggal', 'ASC');
+        if($filter_bulan != null){
+            $filter_bulanArr = explode("-", $filter_bulan);
+            $totalTanggal = cal_days_in_month(CAL_GREGORIAN, $filter_bulanArr[1], $filter_bulanArr[0]);
+            $filterTanggalMulai = $filter_bulan . "-01";
+            $filterTanggalSelesai = $filter_bulan . "-" . $totalTanggal;
+
+            $product->where('product_masuk.tanggal', '>=', $filterTanggalMulai)
+            ->where('product_masuk.tanggal', '<=', $filterTanggalSelesai);
+        }
+        $product = $product->get();
 
         return Datatables::of($product)
             ->addColumn('products_name', function ($product){
@@ -180,9 +191,20 @@ class ProductMasukController extends Controller
 
     }
 
-    public function exportProductMasukAll()
+    public function exportProductMasukAll(Request $request)
     {
-        $product_masuk = Product_Masuk::all();
+        $filter_bulan = $request->filter_bulan ?? null;
+        $product_masuk = Product_Masuk::orderBy('tanggal', 'ASC');
+        if($filter_bulan != null){
+            $filter_bulanArr = explode("-", $filter_bulan);
+            $totalTanggal = cal_days_in_month(CAL_GREGORIAN, $filter_bulanArr[1], $filter_bulanArr[0]);
+            $filterTanggalMulai = $filter_bulan . "-01";
+            $filterTanggalSelesai = $filter_bulan . "-" . $totalTanggal;
+
+            $product_masuk->where('product_masuk.tanggal', '>=', $filterTanggalMulai)
+            ->where('product_masuk.tanggal', '<=', $filterTanggalSelesai);
+        }
+        $product_masuk = $product_masuk->get();
         $pdf = PDF::loadView('product_masuk.productMasukAllPDF',compact('product_masuk'));
         return $pdf->download('product_masuk.pdf');
     }
