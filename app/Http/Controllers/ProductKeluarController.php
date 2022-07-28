@@ -130,10 +130,24 @@ class ProductKeluarController extends Controller
             'tanggal'           => 'required'
         ]);
 
+        $product = Product::findOrFail($request->product_id);
+        $qtyInput = (int)$request->qty;
+        if($qtyInput <= 0){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Input anda tidak masuk akal'
+            ]);
+
+        }
+        if($qtyInput > $product->qty){
+            return response()->json([
+                'error'    => true,
+                'message'    => 'Stok Yang Diinput melebihi batas'
+            ]);
+        }
         $product_keluar = Product_Keluar::findOrFail($id);
         $product_keluar->update($request->all());
 
-        $product = Product::findOrFail($request->product_id);
         $product->qty -= $request->qty;
         $product->update();
 
