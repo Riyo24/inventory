@@ -175,8 +175,19 @@ class ProductKeluarController extends Controller
 
 
 
-    public function apiProductsOut(){
-        $product = Product_Keluar::all();
+    public function apiProductsOut(Request $request){
+        $filter_bulan = $request->filter_bulan ?? null;
+        $product = Product_Keluar::orderBy('tanggal', 'ASC');
+        if($filter_bulan != null){
+            $filter_bulanArr = explode("-", $filter_bulan);
+            $totalTanggal = cal_days_in_month(CAL_GREGORIAN, $filter_bulanArr[1], $filter_bulanArr[0]);
+            $filterTanggalMulai = $filter_bulan . "-01";
+            $filterTanggalSelesai = $filter_bulan . "-" . $totalTanggal;
+
+            $product->where('product_keluar.tanggal', '>=', $filterTanggalMulai)
+            ->where('product_keluar.tanggal', '<=', $filterTanggalSelesai);
+        }
+        $product = $product->get();
 
         return Datatables::of($product)
             ->addColumn('products_name', function ($product){
@@ -196,9 +207,20 @@ class ProductKeluarController extends Controller
 
     }
 
-    public function exportProductKeluarAll()
+    public function exportProductKeluarAll(Request $request)
     {
-        $product_keluar = Product_Keluar::all();
+        $filter_bulan = $request->filter_bulan ?? null;
+        $product_keluar = Product_Keluar::orderBy('tanggal', 'ASC');
+        if($filter_bulan != null){
+            $filter_bulanArr = explode("-", $filter_bulan);
+            $totalTanggal = cal_days_in_month(CAL_GREGORIAN, $filter_bulanArr[1], $filter_bulanArr[0]);
+            $filterTanggalMulai = $filter_bulan . "-01";
+            $filterTanggalSelesai = $filter_bulan . "-" . $totalTanggal;
+
+            $product_keluar->where('product_keluar.tanggal', '>=', $filterTanggalMulai)
+            ->where('product_keluar.tanggal', '<=', $filterTanggalSelesai);
+        }
+        $product_keluar = $product_keluar->get();
         $pdf = PDF::loadView('product_keluar.productKeluarAllPDF',compact('product_keluar'));
         return $pdf->download('product_keluar.pdf');
     }

@@ -18,9 +18,12 @@
             <h3 class="box-title">Data Penjualan Barang</h3>
         </div>
 
-        <div class="box-header">
-            <a onclick="addForm()" class="btn btn-primary" >Tambah Penjualan Barang</a>
-            <a href="{{ route('exportPDF.productKeluarAll') }}" class="btn btn-success">Cetak Laporan Penjualan Barang</a>
+        <div class="box-header" style="display: flex;">
+            <a onclick="addForm()" class="btn btn-primary" style="margin-right: 15px;">Tambah Penjualan Barang</a>
+            <button onclick="exportPDFLaporan();" class="btn btn-success" style="margin-right: 15px;">Cetak Laporan Penjualan Barang</button>
+            <div class="form-group" style="margin: 0;">
+                <input id="filter_bulan" name="filter_bulan" type="month" class="form-control" style="min-width: 190px; max-width: 200px;">
+            </div>
             {{-- <a href="{{ route('exportExcel.productKeluarAll') }}" class="btn btn-success">Export Excel</a> --}}
         </div>
 
@@ -157,19 +160,27 @@
     </script>
 
     <script type="text/javascript">
-        var table = $('#products-out-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('api.productsOut') }}",
-            columns: [
-                {data: 'id', name: 'id'},
-                {data: 'products_name', name: 'products_name'},
-                {data: 'customer_name', name: 'customer_name'},
-                {data: 'qty', name: 'qty'},
-                {data: 'tanggal', name: 'tanggal'},
-                {data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
-        });
+        function fetchData(filter_bulan = ""){
+            var table = $('#products-out-table').DataTable({
+                "bDestroy": true,
+                processing: true,
+                serverSide: true,
+                ajax:{
+                    url: "{{ route('api.productsOut') }}",
+                    data:{
+                        filter_bulan: filter_bulan
+                    },
+                },
+                columns: [
+                    {data: 'id', name: 'id'},
+                    {data: 'products_name', name: 'products_name'},
+                    {data: 'customer_name', name: 'customer_name'},
+                    {data: 'qty', name: 'qty'},
+                    {data: 'tanggal', name: 'tanggal'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
+            });
+        }
 
         function addForm() {
             save_method = "add";
@@ -227,7 +238,8 @@
                     type : "POST",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
                     success : function(data) {
-                        table.ajax.reload();
+                        // table.ajax.reload();
+                        fetchData();
                         swal({
                             title: 'Success!',
                             text: data.message,
@@ -273,7 +285,8 @@
                                 })
                             } else if(data.success) {
                                 $('#modal-form').modal('hide');
-                                table.ajax.reload();
+                                fetchData();
+                                // table.ajax.reload();
                                 window.location.reload();
                                 swal({
                                     title: 'Success!',
@@ -296,6 +309,20 @@
                 }
             });
         });
+
+        function exportPDFLaporan(){
+            var filter_bulan = $('#filter_bulan').val();
+            var url = `{{ url('exportProductKeluarAll?filter_bulan=${filter_bulan}') }}`;
+            window.location.href = url;
+        }
+
+        $('#filter_bulan').on('change', function (e) {
+            var filter_bulan = $('#filter_bulan').val();
+
+            fetchData(filter_bulan);
+        });
+
+        fetchData();
     </script>
 
 @endsection
