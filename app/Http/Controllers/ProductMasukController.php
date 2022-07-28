@@ -62,7 +62,6 @@ class ProductMasukController extends Controller
             'tanggal'        => 'required'
         ]);
 
-        Product_Masuk::create($request->all());
         $qtyInput = (int)$request->qty;
         if($qtyInput <= 0){
             return response()->json([
@@ -71,7 +70,7 @@ class ProductMasukController extends Controller
             ]);
 
         }
-
+        Product_Masuk::create($request->all());
         $product = Product::findOrFail($request->product_id);
         $product->qty += $request->qty;
         $product->save();
