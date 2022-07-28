@@ -18,9 +18,12 @@
             <h3 class="box-title">Data Pelayanan Jasa</h3>
         </div>
 
-        <div class="box-header">
-            <a onclick="addForm()" class="btn btn-primary" >Tambah Pelayanan Jasa</a>
-            <a href="{{ route('exportPDF.penjualanJasaAll') }}" class="btn btn-success">Cetak Laporan Jasa</a>
+        <div class="box-header" style="display: flex;">
+            <a onclick="addForm()" class="btn btn-primary" style="margin-right: 15px;">Tambah Pelayanan Jasa</a>
+            <button onclick="exportPDFLaporan();" class="btn btn-success" style="margin-right: 15px;">Cetak Laporan Jasa</button>
+            <div class="form-group" style="margin: 0;">
+                <input id="filter_bulan" name="filter_bulan" type="month" class="form-control" style="min-width: 190px; max-width: 200px;">
+            </div>
         </div>
 
         <!-- /.box-header -->
@@ -150,19 +153,27 @@
     </script>
 
     <script type="text/javascript">
-        var table = $('#penjualan-jasa-table').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('api.penjualanJasa') }}",
-            columns: [
-                {data: 'id', name: 'id'},
-                {data: 'jasa_name', name: 'jasa_name'},
-                {data: 'customer_name', name: 'customer_name'},
-                {data: 'customer_alamat', name: 'customer_alamat'},
-                {data: 'tanggal', name: 'tanggal'},
-                {data: 'action', name: 'action', orderable: false, searchable: false}
-            ]
-        });
+        function fetchData(filter_bulan = ""){
+            var table = $('#penjualan-jasa-table').DataTable({
+                "bDestroy": true,
+                processing: true,
+                serverSide: true,
+                ajax:{
+                    url: "{{ route('api.penjualanJasa') }}",
+                    data:{
+                        filter_bulan: filter_bulan
+                    },
+                },
+                columns: [
+                    {data: 'id', name: 'id'},
+                    {data: 'jasa_name', name: 'jasa_name'},
+                    {data: 'customer_name', name: 'customer_name'},
+                    {data: 'customer_alamat', name: 'customer_alamat'},
+                    {data: 'tanggal', name: 'tanggal'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                ]
+            });
+        }
 
         function addForm() {
             save_method = "add";
@@ -289,6 +300,20 @@
                 }
             });
         });
+
+        function exportPDFLaporan(){
+            var filter_bulan = $('#filter_bulan').val();
+            var url = `{{ url('exportPenjualanJasaAll?filter_bulan=${filter_bulan}') }}`;
+            window.location.href = url;
+        }
+
+        $('#filter_bulan').on('change', function (e) {
+            var filter_bulan = $('#filter_bulan').val();
+
+            fetchData(filter_bulan);
+        });
+
+        fetchData();
     </script>
 
 @endsection

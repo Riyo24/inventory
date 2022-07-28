@@ -148,8 +148,19 @@ class PenjualanJasaController extends Controller
             'message'    => 'Penjualan Jasa Berhasil Dihapus'
         ]);
     }
-    public function apiPenjualanJasa(){
-        $penjualan_jasa = Penjualan_Jasa::all();
+    public function apiPenjualanJasa(Request $request){
+        $filter_bulan = $request->filter_bulan ?? null;
+        $penjualan_jasa = Penjualan_Jasa::orderBy('tanggal', 'ASC');
+        if($filter_bulan != null){
+            $filter_bulanArr = explode("-", $filter_bulan);
+            $totalTanggal = cal_days_in_month(CAL_GREGORIAN, $filter_bulanArr[1], $filter_bulanArr[0]);
+            $filterTanggalMulai = $filter_bulan . "-01";
+            $filterTanggalSelesai = $filter_bulan . "-" . $totalTanggal;
+
+            $penjualan_jasa->where('penjualan_jasa.tanggal', '>=', $filterTanggalMulai)
+            ->where('penjualan_jasa.tanggal', '<=', $filterTanggalSelesai);
+        }
+        $penjualan_jasa = $penjualan_jasa->get();
 
         return Datatables::of($penjualan_jasa)
             ->addColumn('jasa_name', function ($penjualan_jasa){
@@ -167,9 +178,21 @@ class PenjualanJasaController extends Controller
             })
             ->rawColumns(['jasa_name','customer_name','action'])->make(true);
     }
-    public function exportPenjualanJasaAll()
+    public function exportPenjualanJasaAll(Request $request)
     {
-        $penjualan_jasa = Penjualan_Jasa::all();
+        $filter_bulan = $request->filter_bulan ?? null;
+        $penjualan_jasa = Penjualan_Jasa::orderBy('tanggal', 'ASC');
+        if($filter_bulan != null){
+            $filter_bulanArr = explode("-", $filter_bulan);
+            $totalTanggal = cal_days_in_month(CAL_GREGORIAN, $filter_bulanArr[1], $filter_bulanArr[0]);
+            $filterTanggalMulai = $filter_bulan . "-01";
+            $filterTanggalSelesai = $filter_bulan . "-" . $totalTanggal;
+
+            $penjualan_jasa->where('penjualan_jasa.tanggal', '>=', $filterTanggalMulai)
+            ->where('penjualan_jasa.tanggal', '<=', $filterTanggalSelesai);
+        }
+        $penjualan_jasa = $penjualan_jasa->get();
+        
         $pdf = PDF::loadView('penjualan_jasa.penjualanJasaAllPDF',compact('penjualan_jasa'));
         return $pdf->download('penjualan_jasa.pdf');
     }
