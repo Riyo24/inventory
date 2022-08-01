@@ -232,7 +232,8 @@
                     type : "POST",
                     data : {'_method' : 'DELETE', '_token' : csrf_token},
                     success : function(data) {
-                        table.ajax.reload();
+                        // table.ajax.reload();
+                        fetchData();
                         swal({
                             title: 'Success!',
                             text: data.message,
@@ -277,7 +278,8 @@
                                 })
                             } else if(data.success) {
                                 $('#modal-form').modal('hide');
-                                table.ajax.reload();
+                                fetchData();
+                                // table.ajax.reload();
                                 window.location.reload();
                                 swal({
                                     title: 'Success!',
