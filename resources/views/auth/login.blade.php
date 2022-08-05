@@ -37,10 +37,10 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="signin-email" class="control-label sr-only">Email</label>
-                                    <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="signin-email" value="{{ old('email') }}" autofocus required placeholder="Email">
+                                    <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="signin-email" value="{{ old('email') }}" autofocus placeholder="Email">
                                     @if ($errors->has('email'))
                                     <br>
-                                    <div class="alert alert-danger alert-dismissible">
+                                    <div class="alert alert-danger alert-dismissible" style="text-transform: capitalize;">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                         <strong><i class="icon fa fa-ban"></i> Alert!</strong> &nbsp; {{ $errors->first('email') }}
                                     </div>
@@ -50,9 +50,11 @@
                                     <label for="signin-password" class="control-label sr-only">Password</label>
                                     <input type="password" class="form-control" name="password" id="signin-password" value="{{ old('password') }}" placeholder="Password">
                                     @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                    <br>
+                                    <div class="alert alert-danger alert-dismissible" style="text-transform: capitalize;">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <strong><i class="icon fa fa-ban"></i> Alert!</strong> &nbsp; {{ $errors->first('password') }}
+                                    </div>
                                     @endif
                                 </div>
                                 <div class="form-group clearfix">
