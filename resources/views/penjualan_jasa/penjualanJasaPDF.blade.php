@@ -44,9 +44,9 @@
     </table>
     <hr>
 
-    <table border="0" width="30%" style="margin-top: 10px;">
+    <table border="0" width="100%" style="margin-top: 10px;">
         <tr>
-            <td>
+            <td width="12%">
             Pelanggan
           </td>
           <td>
@@ -54,7 +54,15 @@
           </td>
         </tr>
         <tr>
-            <td>
+            <td width="12%">
+            Alamat
+          </td>
+          <td>
+            : {{ $penjualan_jasa->customer->alamat }}
+          </td>
+        </tr>
+        <tr>
+            <td width="12%">
                 Telepon
             </td>
             <td>
